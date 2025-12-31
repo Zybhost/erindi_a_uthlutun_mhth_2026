@@ -24,41 +24,60 @@
 		<div class="reveal">
 			<div class="slides">
                 <section>
-                    <h1>Erindi á úthlutun úr minningarsjóði Hjalta Þórs 2026</h1>
+                    <h2>Erindi á úthlutun úr minningarsjóði Hjalta Þórs 2026</h1>
                     <p>
-                        <small>Hröðun samleitni runa og gólffall ferningsrótar.</small>
+                        Hröðun samleitni runa og gólffall ferningsrótar.
                     </p>
                 </section>
                 
                 <section>
-                    <h2>Hjalti og stærðfræði</h2>
+                    <h2>Rúmfræðingurinn Hjalti</h2>
+                    <aside class="notes">
+                        Við Hjalti hittumst vegna sameiginlegs áhuga okkar á keppnisstærðfræði.
+                        Stundum hittumst við til að ræða um áhugaverðar þrautir eða atriði sem okkur fannst áhugaverð.
+                        Við höfðum báðir áhuga á rúmfræði og fyrir ólympíuleikana í stærðfræði lögðum við báðir mikla áherslu á að æfa okkur í henni.
+                </section>
+                <section>
+                    <h2>Spjall um stærðfræðiþrautir</h2>
+                    <aside class="notes">
+                        Við hittums einning utan þess og ræddum um fræðiatriði sem okkur fannst áhugaverð.
+                        Eitt sinn kom ég í heimsókn þar sem við veltum því fyrir okkur hvering ferningsrætur eru reiknaðar, eða alla vega nálgaðar.
+                        Eitt fyrsta sem kemur til hugar er einskonar helmingaleit, við gistkum og uppfærum gistkið okkar eftir því hvort það var stærra eða minna en ferningrótin.
+                        Við komumst að því að vel þekkt og ævaforn aðferð til þess að reikna þær er ítrunaraðferð sem þekkt hefur verið allavega frá tímum Babilíonmann í fornöld.
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>Hröðun samleitni runa</h2>
+                    <h2>Babilíónska aðferðin</h2>
+                    <p>\(S\) er tala og \(x_0\) er upphafsgisk á \(\sqrt{S}\).</p>
                     <p>
-                        TODO: Um spjall við Hjalta um runur. 
+                    \[
+                        x_{n + 1} = \frac{x_n + S / x_n}{2}.
+                    \]
                     </p>
-                </section>
-
-                <section>
-                    <h2>Útreikningur ferningsróta</h2>
-                    <p>
-                        TODO: helmingunarleit, babilíónska aðferðin.
-                    </p>
+                    <aside class="notes">
+                        Aðferðin byggir á því að bæta matið á ferningsrótinni með því að ítrekað bæta matið á ferningsrótinni.
+                        Þar sem margfeldi \(x_n\) og \(S / x_n\) er \(S\) þá er \(x_n\) ferningsrótin ef og aðein ef þær eru jafnar.
+                        Annar liggur ferningsrótin á milli þeirra og því er meðaltal þeirra betri nálgun.
+                        Það kemur í ljós að fyrir nægilega gott upphafsgisk þá mun fjöldi réttra tölustafa um það bil tvöfaldast í hveri ítrun.
+                    </aside>
                 </section>
 
                 <section>
                     <h2>Töluleg greining með heiltölum</h2>
                     <p>
-                        TODO: Hver er hún?
+                        Við gætum spurt okkur hvort við getum yfirfært þessa aðferð yfir á heiltölur.
+                        Þetta kemur til dæmis upp þegar við viljum athuga hvort tala sé ferningstala eða hverjar næstu ferningstölur við hana séu.
+                        Til dæmis er ártalið í ár ferningstala (\(45^2\)).
+                        Upphaflega Babilíonska aðferðin notar ekki eingöngu heiltölur þannig að útreikningar gætu orðið hægir, sérstaklega ef við vijum gera þetta í höndunum.
+                        Fyrsta sem okkur gæti dottið í hug væri að taka gólffallið af hverri nálgun en það virkar því miður ekki.
                     </p>
                 </section>
                 
                 <section>
                     <h2>Babilíónska aðferðin fyrir heiltölur</h2>
                     <p>
-                        Hver er hún.
+                        
                     </p>
                 </section>
 
@@ -83,7 +102,7 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
-		<script>
+        <script src="plugin/math/math.js"></script> <script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
@@ -91,7 +110,7 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
 			});
 		</script>
 	</body>
