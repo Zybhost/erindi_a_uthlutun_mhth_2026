@@ -15,7 +15,7 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/moon.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -38,7 +38,7 @@
                 </section>
 
                 <section>
-                    <h2>Stærðfræðikeppnir</h2>
+                    <h2>Keppnisstærðfræði</h2>
                     <aside class="notes">
                         Leiðir okkar Hjalta lágu saman þegar við tókum þátt í stærðfræðikeppni framhaldsskólanna. Við náðum fljótlega saman í gegnum þetta sameiginlega áhugamál. Þó svo að það var mikil hvatning að getað skipst á hugmyndum og pælingum um það sem við vorum að hugsa. Þó að það krefjist mikillar einbeitingar að melta með sér hugmyndir þá einnig mikilvægt að segja frá hugsunum sínum. Við deildum ýmsum hugmyndum og ég minnist þess oft þegar við leituðum til hvors annars með það sem við vorum að velta fyrir okkur.
 
@@ -47,7 +47,7 @@
                 </section>
 
                 <section>
-                    <h2>Tilraunamennska í stærðfræði</h2>
+                    <h2>Tilraunir í stærðfræði</h2>
                     <aside class="notes">
                         Um daginn var ég að velta fyrir mér dæmi þar sem að í einu skrefinu þurfti ég að ákvarða hvort að tala væri ferningstala. Þetta er nokkuð sem ég hef margsinnis leyst með því að athuga hvort að talan sé annað veldi gólffalls (heiltöluhluta) ferningsrótarinnar. Í þetta sinn ákvað ég að velta þessu betur fyrir mér. Þegar við byðjum tölvuna um að reikna ferningsrót þá erum við yfirlett að byðja um nálgun enda er ferningsrótin ekki ræð nema um ferningstölu sé að ræða. Það þýðir að við erum að reikna nálgun til þess að fá hver heiltöluhlutinn sé, nokkuð sem hefur nákvæmt svar.
 
@@ -58,7 +58,13 @@
                 <section>
                     <h2>Babilíónska aðferðin</h2>
                     <p>
+                    Viljum finna mat á \(\sqrt{S}\).
+                    </p>
+                    <p>
                     \(\frac{x + S / x}{2}\) er betra mat á \(\sqrt{S}\) en \(x\).
+                    </p>
+                    <p>
+                    \(x_{n + 1} = \frac{x_n + S / x_n}{2}\).
                     </p>
                     <aside class="notes">
                         Ein þessara aðferða er ævaforn ítrunaraðferð þekkt hefur verið frá dögum Babilíonumanna. Hú byggir á því að ef \(x\) er ágiskun á ferningsrótinni \(\sqrt{S}\) að þá er rétt gildi hennar á milli \(x\) og \(S / x\). Það þýðir að meðaltal þeirra er betra mat á ferningsrótinni. Svona má halda áfram aftur og aftur þar til að ásættanlegri nálgun er náð. Vegna deilnigarinnar þá er viðbúið að við endum með að fá brot sem þarf þá að nálga, þetta er allavega ekki einungis með heiltölum. Við gætum því velt fyrir okkur hvort við gætum gert svipað, nema með heiltölum.
@@ -88,14 +94,17 @@
                 <section>
                     <h2>Ítrunarskrefið</h2>
                     <p>
-                        \[
-                        \frac{x + S / x}{2} \geq \sqrt{S}
-                        \]
+                    \[
+                    \frac{x + S / x}{2} \geq \sqrt{S}
+                    \]
                     </p>
                     <p>
-                        \[
-                        \frac{x + S / x}{2} - x = \frac{S - x^2}{2x}.
-                        \]
+                    \[
+                    \frac{x + S / x}{2} - x = \frac{S - x^2}{2x}
+                    \]
+                    </p>
+                    <p>
+                    Ef \(x^2 > S\) þá er \( \left\lfloor\frac{x + S / x}{2}\right\rfloor < x\)
                     </p>
                     <aside class="notes">
                         Það næsta sem okkur er að skoða ítrunarskrefið aðeins betur. Ef \(x \neq \sqrt{S}\) þá er næsta nálgun ofmat. Ef matið er ofmat þá er næsta mat minna. Þetta hefur í för með sér að ítrunin hlýtur að stefna að eina fastapunktinum. Það þýðir að okkur nægir að athuga fyrir hvaða gildi ítrunarskrefið nær fastapunktinum.
@@ -104,6 +113,103 @@
 
                 <section>
                     <h2>Hvenær nær næsta skerf fastapunktur</h2>
+                    <p>
+                    Hvenær er \(\left\lfloor\sqrt{S}\right\rfloor = \left\lfloor\frac{z + S / z}{2}\right\rfloor\)?
+                    </p>
+                    <aside class="notes">
+                        Blah, blah.
+                    </aside>
+                </section>
+
+                <section data-auto-animate>
+                    <pre data-id="code"><code data-trim data-line-numbers="1-15|11-25" class="langage-lua">
+                    -- Function to find where (x + s / x) / 2 achieves minimum.
+                    function locate_min(s)
+                        local best, argmin, argmax = s + 1, 0, 0
+                        local x = 1
+                        while true do
+                            z = (x + s // x) // 2
+                            if z < best then
+                                best = z
+                                argmin = x
+                            end
+                            if z == best then
+                                argmax = x
+                            end
+                            if z > best then
+                                break
+                            end
+                            x = x + 1
+                        end
+                        return argmin, argmax
+                    end
+                    
+                    for i=0,30 do
+                        argmin, argmax = locate_min(i)
+                        print(i, argmin, argmax)
+                    end
+                    </code></pre>
+                </section>
+
+                <section data-auto-animate>
+                    <pre data-id="code"><code data-trim data-line-numbers="1-31|2-3|4|5|6-8|9|10-12|13-15|16|17-21|22-24|25|26-27|28-31" data-ln-start-from="0" class="langage-lua">
+                    $ lua babilionian_experiment.lua
+                    1	1	3
+                    2	1	3
+                    3	2	2
+                    4	1	5
+                    5	2	4
+                    6	2	4
+                    7	2	4
+                    8	3	3
+                    9	2	6
+                    10	2	6
+                    11	2	6
+                    12	3	5
+                    13	3	5
+                    14	3	5
+                    15	4	4
+                    16	3	7
+                    17	3	7
+                    18	3	7
+                    19	3	7
+                    20	3	7
+                    21	4	6
+                    22	4	6
+                    23	4	6
+                    24	5	5
+                    25	3	9
+                    26	3	9
+                    27	4	8
+                    28	4	8
+                    29	4	8
+                    30	4	8
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Hvaða tölur eru þetta?</h2>
+                    <p>
+                    \[
+                    n^2 - k^2 = (n - k) (n + k)
+                    \]
+                    </p>
+                    <p>
+                    Ef \(S \geq n^2 - k^2\) og \(\left|x - n\right| \geq k\) þá er
+                    \[
+                        \left\lfloor\frac{x + S / x}{2}\right\rfloor \geq n
+                    \]
+                    </p>
+                    <aside class="notes">
+                        Þetta ef við byrjum að skoða þær tölur þar sem tvenndin kemur nákvæmlega einu sinni fyrir þá sést að það þær eru tölurnar sem eru einum minni en ferningstala. Ef við skoðum tölurnar þar á undan sést að þær koma í þrjár saman, allavega eftir fyrsta skrefið. Næst koma þær fimm saman. Þetta gefur til kynna að við ættum að skoða tölurnar á forminu \((n + 1)^2 - k^2\).
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Uppfærð áætlun</h2>
+                    <aside class="notes">
+                        Blah, blah.
+                    </aside>
                 </section>
 
                 <section>
