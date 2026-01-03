@@ -57,13 +57,13 @@
 
                 <section>
                     <h2>Babilíónska aðferðin</h2>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                     Viljum finna mat á \(\sqrt{S}\).
                     </p>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                     \(\frac{x + S / x}{2}\) er betra mat á \(\sqrt{S}\) en \(x\).
                     </p>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                     \(x_{n + 1} = \frac{x_n + S / x_n}{2}\).
                     </p>
                     <aside class="notes">
@@ -73,15 +73,15 @@
                 
                 <section>
                     <h2>Babilíónska aðferðin fyrir heiltölur</h2>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                         \[
                             x_{n + 1} = \left\lfloor\frac{x_n + S / x_n}{2}\right\rfloor
                         \]
                     </p>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                         Virkar ekki fyrir tölurnar \(3, 8, 15, 24, \dots\)
                     </p>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                         \[
                         \frac{x + ((x + 1)^2 - 1) / x}{2} = x + 1
                         \]
@@ -93,17 +93,17 @@
 
                 <section>
                     <h2>Ítrunarskrefið</h2>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                     \[
                     \frac{x + S / x}{2} \geq \sqrt{S}
                     \]
                     </p>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                     \[
                     \frac{x + S / x}{2} - x = \frac{S - x^2}{2x}
                     \]
                     </p>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                     Ef \(x^2 > S\) þá er \( \left\lfloor\frac{x + S / x}{2}\right\rfloor < x\)
                     </p>
                     <aside class="notes">
@@ -117,7 +117,7 @@
                     Hvenær er \(\left\lfloor\sqrt{S}\right\rfloor = \left\lfloor\frac{z + S / z}{2}\right\rfloor\)?
                     </p>
                     <aside class="notes">
-                        Blah, blah.
+                        Næsta sem spurning sem við gætum velt fyrir okkur er, fyrir hvaða gildi á \(z\) ítrunarskrefið nær fastapunktinum. Við gætum prófað að reikna þetta í höndunum en það má líka stytta sér skrefin og reikna þetta með stuttu forriti.
                     </aside>
                 </section>
 
@@ -189,15 +189,15 @@
 
                 <section>
                     <h2>Hvaða tölur eru þetta?</h2>
-                    <p>
+                    <p class="fragment fade-in-then-semi-out">
                     \[
                     n^2 - k^2 = (n - k) (n + k)
                     \]
-                    </p>
-                    <p>
-                    Ef \(S \geq n^2 - k^2\) og \(\left|x - n\right| \geq k\) þá er
+                    </p >
+                    <p class="fragment fade-in-then-semi-out">
+                    Ef \(n^2 \leq S < (n + 1)^2 - k^2\) og \(\left|x - (n + 1)\right| \leq k\) þá er
                     \[
-                        \left\lfloor\frac{x + S / x}{2}\right\rfloor \geq n
+                    \left\lfloor\frac{x + S / x}{2}\right\rfloor = n
                     \]
                     </p>
                     <aside class="notes">
@@ -207,19 +207,23 @@
 
                 <section>
                     <h2>Uppfærð áætlun</h2>
+                    <p class="fragment fade-in-then-semi-out">
+                    \(z = x + k\) þar sem \(0 < k < 1\).
+                    </p>
+                    <p class="fragment fade-in-then-semi-out">
+                    \[
+                    x_{n + 1} = \left\lfloor\frac{(2x_n + 1) + 4n / (2x_n + 1)}{4}\right\rfloor
+                    \]
+                    </p>
                     <aside class="notes">
-                        Blah, blah.
+                        Við látu \(z = x + k\) þar sem \(k\) liggur á milli \(0\) og \(1\), því þá er \(x\) gólffallið af \(z\) og við sjáum að \(n = \lfloor\sqrt{S}\rfloor\) er eini fastapunktur ítrunarinnar. Við erum nú komin með aðferð sem virkar.
                     </aside>
                 </section>
 
                 <section>
-                    <h2>Niðurlag</h2>
+                    <h2>Framhaldið</h2>
                     <aside class="notes">
-                        Það er gaman að skoða og prófa sig áfram með stærðfræðina til þess að sjá hvert það leiðir.
-                        Þetta er hugarfar sem við báðir höfðum og byggir á óþrjótandi forvitni.
-                        Þó svo að þessi tilraunastarfsemi hafi ekki verið byltnigarkennd þá sýnir þetta virði þessa að vera forvitin og þora að spyrja spurninga.
-                        Ég vona að þið munið ekki láta deigan síga og hafið kraft og þor til þess að halda áfram sama hvað.
-                        Við hlökkum til að sjá hvað þið munið finna á þeirri vegferð sem þið leggið upp í.
+                        Aðferðin sem við fundum lætur ekki mikið yfir sér. Þessar vangaveltur leiddu okkur samt að því að finna aðferð sem getur reiknað gólffall ferningsrótarinnar með heiltölum eingöngu. Næstu spurningar sem við gætum spurt okkur væru til dæmis hvernig við gætum möndlað meira með aðferðina, til dæmis hvernig mætti gera hana skilvirkari. Svo er gætum við velt því fyrir okkur hvort við gætum til dæmis ákvarðað hvort að talan sé ferningstala án þess að reikna ferningsrótina. Ég vona að þetta einfaldlingslega dæmi hafi gefið ykkur innsýn hvernig svona fikt getur vakið rannsóknarspuringar. Þetta byggir oft á því að prófa sig áfram til þess að átta sig betur á undirliggjandi mynstri.Ég óska ykkur öllum hins besta í rannsóknum að mynstrunum sem leynast í stærðfræðinni.
                     </aside>
                 </section>
 			</div>
